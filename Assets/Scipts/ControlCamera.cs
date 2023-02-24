@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ControlCamera : MonoBehaviour
 {
+
+    public float PlayerSpeed = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,7 @@ public class ControlCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
     }
 }

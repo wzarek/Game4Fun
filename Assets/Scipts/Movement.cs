@@ -5,7 +5,11 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    public float PlayerSpeed=2f;
+    public float PlayerSpeed=.5f;
+    public float PlayerRotationSpeed=150f;
+    private bool _isTurned = false;
+    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -27,19 +31,41 @@ public class Movement : MonoBehaviour
         if(Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * Time.deltaTime *PlayerSpeed);
+           
         }
+
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.back * Time.deltaTime * PlayerSpeed);
+            if (_isTurned == false)
+            {
+                transform.Rotate(0, 180, 0);
+                _isTurned = true;
+            }
+
+             transform.Translate(Vector3.forward * Time.deltaTime * PlayerSpeed);
+
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            _isTurned = false;
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * PlayerSpeed);
+            
+            transform.Rotate(0, -(PlayerRotationSpeed * Time.deltaTime), 0);
+            transform.Translate(Vector3.forward * Time.deltaTime * PlayerSpeed*0.3f);
+
         }
+      
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * PlayerSpeed);
+            transform.Rotate(0, PlayerRotationSpeed * Time.deltaTime, 0);
+            transform.Translate(Vector3.forward * Time.deltaTime * PlayerSpeed*0.3f);
+
         }
+       
+       
 
     }
 }

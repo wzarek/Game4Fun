@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 3
-  m_FollowOffset: {x: -0.19, y: 1.864, z: -0.7589998}
+  m_FollowOffset: {x: -0.76100016, y: 1.8322092, z: -0.9225512}
   m_XDamping: 5
   m_YDamping: 5
   m_ZDamping: 5
@@ -1763,7 +1763,6 @@ GameObject:
   - component: {fileID: 1158003550}
   - component: {fileID: 1158003549}
   - component: {fileID: 1158003552}
-  - component: {fileID: 1158003553}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1804,7 +1803,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 59.479134
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1829,8 +1828,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158003548}
-  m_LocalRotation: {x: 0.6261376, y: 0.10790189, z: -0.0576501, w: 0.7700555}
-  m_LocalPosition: {x: -1.957, y: 2.170577, z: 10.291613}
+  m_LocalRotation: {x: 0.52536005, y: 0.31134906, z: -0.13173261, w: 0.7808362}
+  m_LocalPosition: {x: -2.528, y: 2.1705775, z: 10.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1871,19 +1870,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1158003553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1158003548}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25c44f7fdc90ec343874b989ad747731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerSpeed: 2
 --- !u!1 &1181772168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ea634dfa3d4f0e840896cad7dc999070, type: 3}
@@ -2440,8 +2426,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731213425}
-  m_LocalRotation: {x: 0.6261376, y: 0.10790189, z: -0.0576501, w: 0.7700555}
-  m_LocalPosition: {x: -1.957, y: 2.170577, z: 10.291613}
+  m_LocalRotation: {x: 0.52536005, y: 0.31134906, z: -0.13173261, w: 0.7808362}
+  m_LocalPosition: {x: -2.528, y: 2.1705775, z: 10.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2911,6 +2897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 2
+  PlayerRotationSpeed: 100
 --- !u!1001 &5447173238433727352
 PrefabInstance:
   m_ObjectHideFlags: 0
