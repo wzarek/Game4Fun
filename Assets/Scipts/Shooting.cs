@@ -1,46 +1,53 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    public GameObject BulletPrefab;
+    public int AmmunitionInMagazine = 50;
+    public int ReloadTimeSeconds = 3;
 
+    private int _ammunitionLeft;
+    private DateTime _reloadStartTime = DateTime.MinValue;
+    private bool _reloading = false;
 
-
+    private void Awake()
+    {
+        _ammunitionLeft = AmmunitionInMagazine;
+    }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (_reloading && _reloadStartTime.AddSeconds(ReloadTimeSeconds) <= DateTime.Now)
         {
-            InvokeRepeating("Fire", 0, 0.3f);
+            _ammunitionLeft = AmmunitionInMagazine;
+            _reloading = false;
         }
-        if (Input.GetButtonUp("Fire1"))
+        else if (!_reloading && _ammunitionLeft <= 0)
         {
-            CancelInvoke("Fire");
+            _reloadStartTime = DateTime.Now;
+            _reloading = true;
         }
-
+        else if (!_reloading)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                InvokeRepeating(nameof(Fire), 0, 0.3f);
+            }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                CancelInvoke(nameof(Fire));
+            }
+        }
     }
-
-    //private void OnEnable()
-    //{
-
-
-    //    InvokeRepeating("Fire", 0, 0.3f); // w³¹czenie metody strzelania
-
-
-    //}
-
-    //private void OnDisable()
-    //{
-    //    CancelInvoke("Fire");// wy³¹czenie metody strzelania
-    //}
 
     void Fire()
     {
-
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
-
+        if (_ammunitionLeft <= 0) CancelInvoke(nameof(Fire));
+        Instantiate(BulletPrefab, transform.position, transform.rotation);
+        _ammunitionLeft--;
     }
 
 }

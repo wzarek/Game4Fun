@@ -6,8 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     public int amountOfDamage;
+    private float _distanceToDestroy = 0f;
 
-    private float _timeToDestroy = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +18,13 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(0, 0, speed * Time.deltaTime);
-        _timeToDestroy += _timeToDestroy + Time.deltaTime;
-        if(_timeToDestroy >= 5)
+        _distanceToDestroy += speed * Time.deltaTime;
+        if(_distanceToDestroy >= 5)
         {
             Destroy(gameObject);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
