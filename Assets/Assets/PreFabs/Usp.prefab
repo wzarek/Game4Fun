@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6403577887465699391}
   - component: {fileID: 2233617495422951975}
   - component: {fileID: 7698238069102496384}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh3_Group4_Group1_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2386444353912108062}
   - component: {fileID: 541579515373443123}
   - component: {fileID: 2407194580725395558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh2_Group3_Group1_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3880240646100317964}
   - component: {fileID: 6708451071839469105}
   - component: {fileID: 1666318869938226527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh1_Group2_Group1_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5765791019168283230}
   - component: {fileID: -5786299435792249237}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Usp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,4 +296,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33503dd6aa5b5a74696b030b3b7c8ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4188070132247035070, guid: d6529bd7201d97642bc7a3595ad6dd70, type: 3}
+  bulletPrefab: {fileID: 88193906734647592, guid: cf162be814a3fc74e89c238145fc69c0, type: 3}

@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(0, 0, speed * Time.deltaTime);
         _timeToDestroy += _timeToDestroy + Time.deltaTime;
-        if(_timeToDestroy >= 5)
+        if(_timeToDestroy >= 55)
         {
             Destroy(gameObject);
         }
