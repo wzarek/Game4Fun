@@ -1,21 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour
 {
     public GameObject BulletPrefab;
-    public int AmmunitionInMagazine = 50;
+    public int AmmunitionInMagazine = 20;
     public int ReloadTimeSeconds = 3;
+    public int ShootingCooldownMiliseconds = 100;
 
     private int _ammunitionLeft;
     private DateTime _reloadStartTime = DateTime.MinValue;
+    private DateTime _lastTimeShot = DateTime.MinValue;
     private bool _reloading = false;
+    private GameObject _ammunitionText;
 
     private void Awake()
     {
         _ammunitionLeft = AmmunitionInMagazine;
+        _ammunitionText = GameObject.FindGameObjectWithTag("UIAmmo");
+
+        SetAmmunitionText();
     }
 
     private void Update()
@@ -24,6 +32,7 @@ public class Shooting : MonoBehaviour
         {
             _ammunitionLeft = AmmunitionInMagazine;
             _reloading = false;
+            SetAmmunitionText();
         }
         else if (!_reloading && _ammunitionLeft <= 0)
         {
@@ -36,18 +45,40 @@ public class Shooting : MonoBehaviour
             {
                 InvokeRepeating(nameof(Fire), 0, 0.3f);
             }
-            if (Input.GetButtonUp("Fire1"))
-            {
-                CancelInvoke(nameof(Fire));
-            }
+        }
+        else
+        {
+            SetAmmunitionText();
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            CancelInvoke(nameof(Fire));
         }
     }
 
-    void Fire()
+    private void Fire()
     {
-        if (_ammunitionLeft <= 0) CancelInvoke(nameof(Fire));
+        if (_ammunitionLeft <= 0) return;
+        if (_lastTimeShot.AddMilliseconds(ShootingCooldownMiliseconds) > DateTime.Now) return;
+
         Instantiate(BulletPrefab, transform.position, transform.rotation);
         _ammunitionLeft--;
+        _lastTimeShot = DateTime.Now;
+
+        SetAmmunitionText();
     }
 
+    private void SetAmmunitionText()
+    {
+        if (!_reloading)
+        {
+            _ammunitionText.GetComponent<TextMeshProUGUI>().text = $"{_ammunitionLeft}/{AmmunitionInMagazine}";
+        }
+        else
+        {
+            var loadingTime = Math.Ceiling(Math.Abs(DateTime.Now.Subtract(_reloadStartTime.AddSeconds(ReloadTimeSeconds)).TotalSeconds));
+            _ammunitionText.GetComponent<TextMeshProUGUI>().text = $"Reloading [{loadingTime}s]";
+        }
+    }
 }
