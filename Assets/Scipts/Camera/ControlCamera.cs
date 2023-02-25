@@ -7,7 +7,10 @@ public class ControlCamera : MonoBehaviour
 {
 
     private GameObject _zoomCamera;
-    private GameObject _normalCamera;
+ 
+  ///private GameObject _normalCamera;
+ 
+
 
 
     // Update is called once per frame
@@ -30,7 +33,7 @@ public class ControlCamera : MonoBehaviour
     private void Awake()
     {
         _zoomCamera = GameObject.Find("Player/Camera/ThirdPersonCameraZoom");
-        _normalCamera = GameObject.Find("Player/Camera/ThirdPersonCamera");
+       /// _normalCamera = GameObject.Find("Player/Camera/ThirdPersonCamera");
 
     }
 }

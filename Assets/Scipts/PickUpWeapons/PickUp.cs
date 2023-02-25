@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    public string WeaponName = string.Empty;
+
     // Start is called before the first frame update
     private void OnTriggerStay(Collider other)
     {
@@ -14,7 +16,7 @@ public class PickUp : MonoBehaviour
            
             if(Input.GetKey(KeyCode.E))
             {
-                GameObject.Find("Player/PlayerObject/PlayerCharacterGFX/PlayerPistolSilencer").SetActive(true);
+                GameObject.Find($"Player/PlayerObject/PlayerCharacterGFX/{WeaponName}").SetActive(true);
 
                 Destroy(gameObject);
             }
