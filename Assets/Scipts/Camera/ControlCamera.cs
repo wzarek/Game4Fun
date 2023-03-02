@@ -7,8 +7,12 @@ public class ControlCamera : MonoBehaviour
 {
 
     private GameObject _zoomCamera;
+    private GameObject _normalCamera;
+
+    public int zoomFov = 20;
+    public int nonZoomFov = 40;
  
-  ///private GameObject _normalCamera;
+  
  
 
 
@@ -20,20 +24,20 @@ public class ControlCamera : MonoBehaviour
         if(Input.GetButtonDown("Fire2"))
         {
           
-            _zoomCamera.GetComponent<CinemachineFreeLook>().Priority = 11;
+            _normalCamera.GetComponent<CinemachineFreeLook>().m_Lens.FieldOfView = zoomFov;
         }
         if(Input.GetButtonUp("Fire2"))
         {
-          
-            _zoomCamera.GetComponent<CinemachineFreeLook>().Priority = 9;
-           
+
+            _normalCamera.GetComponent<CinemachineFreeLook>().m_Lens.FieldOfView = nonZoomFov;
+
         }
     }
 
     private void Awake()
     {
         _zoomCamera = GameObject.Find("Player/Camera/ThirdPersonCameraZoom");
-       /// _normalCamera = GameObject.Find("Player/Camera/ThirdPersonCamera");
+        _normalCamera = GameObject.Find("Player/Camera/ThirdPersonCamera");
 
     }
 }

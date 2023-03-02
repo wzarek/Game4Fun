@@ -117,7 +117,7 @@ Transform:
   - {fileID: 2560792185796429500}
   - {fileID: 3985398548421379502}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &-6007922989629022029
 Rigidbody:
@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1527b21cd79b43947839d2356df46797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
-  amountOfDamage: 50
+  speed: 10
+  amountOfDamage: 1
 --- !u!1 &6252727931706437416
 GameObject:
   m_ObjectHideFlags: 0
